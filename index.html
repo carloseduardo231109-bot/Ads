@@ -3,62 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoxxzTech - Redirecionando</title>
-    
-    <!-- Mantém a sua tag de verificação caso a Monetag peça depois -->
-    <meta name="monetag" content="da18a6e6cadf3a8ff13edbba97d80a00">
-
+    <title>NoxxzTech - Visualizador de Patrocínio</title>
     <style>
-        body {
-            background-color: #0b0e14;
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        * {
             margin: 0;
-            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .loader-container {
+        body, html {
+            width: 100%;
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0b0e14;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        /* Barra do Topo Fixa com o Cronômetro */
+        .top-bar {
+            width: 100%;
+            height: 65px;
             background: #121824;
-            border: 1px solid #1f293d;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            max-width: 320px;
+            border-bottom: 2px solid #1f293d;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            color: #ffffff;
+            z-index: 9999;
         }
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border-left-color: #00b4db;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px auto;
+        .brand {
+            font-weight: bold;
+            font-size: 16px;
+            color: #00b4db;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .timer-box {
+            background: rgba(0, 180, 219, 0.1);
+            border: 1px solid #00b4db;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
         }
-        h2 { font-size: 18px; margin-bottom: 8px; }
-        p { font-size: 13px; color: #94a3b8; }
+        .success-box {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid #22c55e;
+            color: #22c55e;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            display: none;
+        }
+        /* Janela do Anúncio (iFrame) */
+        .iframe-container {
+            flex: 1;
+            width: 100%;
+            height: calc(100% - 65px);
+            position: relative;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
-
-    <script>
-        // Assim que a página abrir, ela espera 1 segundo e joga pro Direct Link
-        window.onload = function() {
-            setTimeout(function() {
-                window.location.href = "https://omg10.com/4/11209912";
-            }, 1000); // 1000 milissegundos = 1 segundo
-        };
-    </script>
 </head>
 <body>
-    <div class="loader-container">
-        <div class="spinner"></div>
-        <h2>Carregando Anúncio...</h2>
-        <p>Você será redirecionado para a nossa central de patrocínios em instantes.</p>
+
+    <!-- Barra de controle superior -->
+    <div class="top-bar">
+        <div class="brand">NoxxzPay API</div>
+        <div id="countdown" class="timer-box">Aguarde 15s para pontuar...</div>
+        <div id="status" class="success-box">🎉 Saldo Liberado! Volte ao Bot.</div>
     </div>
+
+    <!-- Container que engole o Direct Link -->
+    <div class="iframe-container">
+        <iframe src="https://omg10.com/4/11209912"></iframe>
+    </div>
+
+    <script>
+        var tempoRestante = 15; // Tempo em segundos que o cara é obrigado a ficar na página
+        var campoContador = document.getElementById("countdown");
+        var campoStatus = document.getElementById("status");
+
+        var cronometro = setInterval(function() {
+            tempoRestante--;
+            
+            if (tempoRestante > 0) {
+                campoContador.innerHTML = "Aguarde " + tempoRestante + "s para pontuar...";
+            } else {
+                clearInterval(cronometro);
+                campoContador.style.display = "none"; // Esconde o contador
+                campoStatus.style.display = "block"; // Mostra a mensagem de sucesso
+                
+                // Emite um aviso sonoro ou alerta simples para o usuário saber que acabou
+                alert("Parabéns! Sua visualização foi contabilizada. Você já pode fechar esta página e coletar seus R$ 0,05 no Telegram.");
+            }
+        }, 1000);
+    </script>
+
 </body>
 </html>
