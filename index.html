@@ -2,50 +2,63 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoxxzTech - Redirecionando</title>
     
+    <!-- Mantém a sua tag de verificação caso a Monetag peça depois -->
     <meta name="monetag" content="da18a6e6cadf3a8ff13edbba97d80a00">
-    
-    <title>NoxxzTech Rewards</title>
-    
-    <script src="https://3nbf4.com/pfe/current/tag.min.js?z=11209914" charset="UTF-8" defer></script>
-    
+
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: #0b0e14; color: #ffffff; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
-        .container { width: 100%; max-width: 360px; text-align: center; background: #121824; border: 1px solid #1f293d; border-radius: 16px; padding: 35px 24px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); }
-        .brand-area { margin-bottom: 25px; }
-        .logo-placeholder { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #00b4db, #0083b0); display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 24px; color: #ffffff; box-shadow: 0 0 20px rgba(0, 180, 219, 0.3); border: 2px solid #1f293d; }
-        h2 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-        p { font-size: 14px; color: #94a3b8; line-height: 1.5; margin-bottom: 30px; }
-        .btn-action { width: 100%; background: linear-gradient(135deg, #00b4db, #0083b0); border: none; padding: 16px; color: #ffffff; font-size: 15px; font-weight: 600; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 180, 219, 0.2); }
-        .footer-note { font-size: 11px; color: #475569; margin-top: 25px; display: block; }
+        body {
+            background-color: #0b0e14;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .loader-container {
+            background: #121824;
+            border: 1px solid #1f293d;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            max-width: 320px;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border-left-color: #00b4db;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        h2 { font-size: 18px; margin-bottom: 8px; }
+        p { font-size: 13px; color: #94a3b8; }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="brand-area"><div class="logo-placeholder">NT</div></div>
-        <h2>Central de Anúncios</h2>
-        <p>Assista ao conteúdo patrocinado completo para computar seu bônus de conta.</p>
-        <button class="btn-action" onclick="executarAnuncio()">📺 ASSISTIR AGORA</button>
-        <span class="footer-note">Ambiente seguro verificado por NoxxzTech API</span>
-    </div>
 
     <script>
-        function ejecutarAnuncio() {
-            if (typeof show_11209914 === 'function') {
-                show_11209914().then(() => { 
-                    alert('Sucesso: Dados sincronizados!'); 
-                }).catch(err => {
-                    alert('Aviso: O anúncio fechou ou não carregou completamente.');
-                });
-            } else {
-                alert('Aviso: Ativando canais de anúncios. Dê OK e clique novamente em 1 segundo.');
-                var s = document.createElement('script');
-                s.src = 'https://3nbf4.com/pfe/current/tag.min.js?z=11209914';
-                document.head.appendChild(s);
-            }
-        }
+        // Assim que a página abrir, ela espera 1 segundo e joga pro Direct Link
+        window.onload = function() {
+            setTimeout(function() {
+                window.location.href = "https://omg10.com/4/11209912";
+            }, 1000); // 1000 milissegundos = 1 segundo
+        };
     </script>
+</head>
+<body>
+    <div class="loader-container">
+        <div class="spinner"></div>
+        <h2>Carregando Anúncio...</h2>
+        <p>Você será redirecionado para a nossa central de patrocínios em instantes.</p>
+    </div>
 </body>
 </html>
