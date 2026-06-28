@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <meta name="monetag" content="da18a6e6cadf3a8ff13edbba97d80a00">
+    
     <title>NoxxzTech Rewards</title>
     
     <script src="https://3nbf4.com/pfe/current/tag.min.js?z=11209914" charset="UTF-8" defer></script>
@@ -29,8 +32,7 @@
     </div>
 
     <script>
-        // Função atualizada para a nova Zone ID da rede 3nbf4.com
-        function executarAnuncio() {
+        function ejecutarAnuncio() {
             if (typeof show_11209914 === 'function') {
                 show_11209914().then(() => { 
                     alert('Sucesso: Dados sincronizados!'); 
@@ -39,7 +41,6 @@
                 });
             } else {
                 alert('Aviso: Ativando canais de anúncios. Dê OK e clique novamente em 1 segundo.');
-                // Força o carregamento manual caso o script demore a responder
                 var s = document.createElement('script');
                 s.src = 'https://3nbf4.com/pfe/current/tag.min.js?z=11209914';
                 document.head.appendChild(s);
